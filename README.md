@@ -5,6 +5,7 @@
 A five-layer market intelligence project that moves from a full restaurant market, to its delivery marketplace, to a single independent restaurant, to a data-driven competitive benchmark - and finally to a strategic positioning thesis.
 > **The market → The marketplace → Our restaurant → Competitive benchmark → Strategic recommendations**
 
+**[View Project Presentation (PDF)](presentation/lviv_food_marketplace_presentation.pdf)**
 ---
 
 ## Project Narrative
@@ -53,21 +54,31 @@ Four interconnected Tableau dashboards, one per layer of analysis:
 ## Repository Structure
 
 ```
+presentation/
+└── lviv_food_marketplace_presentation.pdf   # One-page project overview deck
+
 notebooks/
-├── 01_data_cleaning/        # Raw Google Maps + Glovo data = analysis-ready
-├── 02_market_analysis/      # Lviv market EDA + Glovo marketplace EDA
-└── 03_benchmark/            # Restaurant Performance Analysis (Kaggle dataset)
+├── 01_data_cleaning/
+│   ├── 01_lviv_food_places_cleaning.ipynb   # Google Maps data → analysis-ready
+│   └── 02_glovo_menu_cleaning.ipynb         # Glovo menu data → analysis-ready
+└── 02_market_analysis/
+    ├── 01_lviv_restaurant_market_intelligence.ipynb   # Layer 1
+    ├── 02_glovo_marketplace_intelligence.ipynb        # Layer 2
+    └── 03_restaurant_performance_analysis.ipynb       # Layer 3 (Kaggle dataset)
 
 sql/
-├── benchmark_queries.sql    # BigQuery views: Layer 4 metrics
-└── diagnostics/             # Data-quality checks run during development
+├── benchmark_summary.sql        # Layer 4: 6 core metrics + 3 strategic ratios
+├── cuisine_menu_price.sql       # Our restaurant positioned among Glovo cuisines
+├── cuisine_saturation.sql       # Full cuisine competition ranking
+├── category_concentration.sql   # Revenue concentration by category
+└── segment_composition.sql      # Price-segment cuisine composition
 
 dashboards/
 ├── screenshots/             # Static previews of all 4 dashboard pages
 └── tableau_public_links.md
 
 docs/
-└── layer4_5_summary.md      # Written findings for Layers 4–5
+└── benchmark_summary.md     # Written findings for Layers 4–5
 ```
 
 ---
